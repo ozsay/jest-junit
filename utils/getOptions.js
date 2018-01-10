@@ -27,8 +27,11 @@ function getAppOptions(pathToResolve) {
     traversing = pathToResolve !== path.sep;
 
     const pkgpath = path.join(pathToResolve, 'package.json');
+    const jUnitConfig = path.join(pathToResolve, 'jest-junit.config.js');
 
-    if (fs.existsSync(pkgpath)) {
+    if (fs.existsSync(jUnitConfig)) {
+      return require(jUnitConfig) || {};
+    } else if (fs.existsSync(pkgpath)) {
       let options = (require(pkgpath) || {})['jest-junit'];
 
       if (Object.prototype.toString.call(options) !== '[object Object]') {
