@@ -1,5 +1,5 @@
 {
-  "name": "jest-junit",
+  "name": "ozsay/jest-junit",
   "version": "3.2.1",
   "description": "A jest result processor that generates junit xml files",
   "main": "index.js",
